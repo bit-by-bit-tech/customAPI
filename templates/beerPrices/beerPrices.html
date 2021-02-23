@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Drink Price Comparison Tool{% endblock %}</h1>
+  <a href="https://www.my-tech-solutions.com">Home</a>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="title">Enter the Size in ounces (oz) of the first drink: </label>
+    <input type="number"
+     name="drink_1_size" id="drink_1_size"
+      value="{{ request.form['drink_1_size'] }}" required
+      pattern="[0-9]+([\.,][0-9]+)?" step="0.01">
+
+    <label for="title">Enter the Price of the first drink: </label>
+    <input type="number"
+    name="drink_1_price"
+    id="drink_1_price"
+    value="{{ request.form['drink_1_price'] }}" required
+    pattern="[0-9]+([\.,][0-9]+)?" step="0.01">
+
+    <label for="title">Enter the Size in ounces (oz) of the second drink: </label>
+    <input type="number"
+    name="drink_2_size"
+    id="drink_2_size"
+    value="{{ request.form['drink_2_size'] }}" required
+    pattern="[0-9]+([\.,][0-9]+)?" step="0.01">
+
+    <label for="title">Enter the Price of the second drink: </label>
+    <input type="number"
+    name="drink_2_price"
+    id="drink_2_price"
+    value="{{ request.form['drink_2_price'] }}" required
+    pattern="[0-9]+([\.,][0-9]+)?" step="0.01">
+
+    <input type="submit" value="Submit">
+
+  </form>
+  <div id='d1avg'>
+    <h2>The average price per oz for Drink 1 is: ${{d1avg}}</h2>
+  </div>
+  <div id='d2avg'>
+    <h2>The average price per oz for Drink 2 is: ${{d2avg}}</h2>
+  </div>
+  <div id='answer'>
+    <h2>It is cheaper to buy {{answer}}!</h2>
+  </div>
+
+{% endblock %}

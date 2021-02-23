@@ -1,0 +1,3 @@
+graft customAPI/static
+graft customAPI/templates
+global-exclude *.pyc

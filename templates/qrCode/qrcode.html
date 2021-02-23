@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}QR Code Generator{% endblock %}</h1>
+  <a href="https://www.my-tech-solutions.com/wordpress">Home</a>
+  <a href="https://www.my-tech-solutions.com/wordpress">Tools</a>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="title">Enter what you want to turn into a QR Code</label>
+    <input name="data" id="data" value="{{ request.form['data'] }}" required>
+
+    <input type="submit" value="Generate Code!">
+
+  </form>
+  <div id="codeDisplay">
+    <p>Your code will display on a new page.</p>
+    <p>If making more than one code simply press back and enter the new URL or data.</p>
+    <p>To display the newly entered data, refresh the page and resend.</p>
+    <p>The new code will be displayed. Repeat the process for follow on codes.</p></div>
+{% endblock %}
